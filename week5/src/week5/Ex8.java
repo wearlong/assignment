@@ -41,10 +41,12 @@ class Ex8 {
             return root; 
         } 
   
-        if (key < root.key) 
+        if (key < root.key) {
             root.left = insertRec(root.left, key); 
-        else if (key > root.key) 
+        }
+        else if (key > root.key) {
             root.right = insertRec(root.right, key); 
+        }
   
         return root; 
     } 
@@ -78,7 +80,7 @@ class Ex8 {
         tree.insert(0); 
         tree.insert(8); 
   
-        // print the  
+        // print the tree
         tree.inorder(); 
     } 
 } 
