@@ -10,15 +10,12 @@ package Ex10;
  * @author chpeter868
  */
 
-class Ex10 
-{ 
-    class Node 
-    { 
+class Ex10 { 
+    class Node { 
         int key; 
         Node left, right; 
   
-        public Node(int item) 
-        { 
+        public Node(int item) { 
             key = item; 
             left = right = null; 
         } 
@@ -26,8 +23,7 @@ class Ex10
   
     Node root; 
   
-    Ex10() 
-    { 
+    Ex10() { 
         root = null; 
     } 
   
@@ -72,8 +68,7 @@ class Ex10
   
     Node insertRec(Node root, int key) { 
   
-        if (root == null) 
-        { 
+        if (root == null) { 
             root = new Node(key); 
             return root; 
         } 
@@ -117,6 +112,7 @@ class Ex10
         System.out.println("The tree is"); 
         tree.inorder(); 
   
+        //delete the item in sequeue
         System.out.println("\nDelete 1"); 
         tree.deleteKey(1); 
         System.out.println("The tree is"); 
