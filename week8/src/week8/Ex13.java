@@ -11,13 +11,12 @@ import java.util.*;
  *
  * @author chpeter868
  */
-public class Ez13 {
+public class Ex13 {
  
     private int V;   // No. of vertices 
     private LinkedList<Integer> adj[]; //Adjacency Lists 
   
-    Ez13(int v) 
-    { 
+    Ex13(int v) { 
         V = v; 
         adj = new LinkedList[v]; 
         for (int i=0; i<v; ++i) 
@@ -25,8 +24,7 @@ public class Ez13 {
     } 
   
     // used to add an edge into the graph 
-    void addEdge(int v,int w) 
-    { 
+    void addEdge(int v,int w) { 
         adj[v].add(w); 
     } 
   
@@ -57,8 +55,9 @@ public class Ez13 {
         Iterator<Integer> i = adj[v].listIterator(); 
         while (i.hasNext()) { 
             int n = i.next(); 
-            if (!visited[n]) 
+            if (!visited[n]) {
                 DFSUtil(n, visited); 
+            }
         } 
     } 
   
@@ -70,7 +69,7 @@ public class Ez13 {
     
     
     public static void main(String args[])  { 
-        Ez13 g = new Ez13(6); 
+        Ex13 g = new Ex13(6); 
         
         //add edge of the graph
         g.addEdge(0, 1); 
