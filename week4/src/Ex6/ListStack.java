@@ -17,24 +17,26 @@ public class ListStack extends LinkedList {
 	}
 
 	public Object push(Object item) {
-            super.add(1,item);
+            super.addToTail(item);
             return item;
 	}
 
 	public Object pop() {
-            Object result = super.get(1);
-            super.remove(1);
+            length = super.count();
+            Object result = super.get(length);
+            super.remove(length);
             return result;
 	}
 
 	public Object peek() {
-		return super.get(1);
+            length = super.count();
+            return super.get(length);
 	}
 
 	public int search(Object item) {
                length = super.count();
                for(int i = 1; i<=length; i++) {
-                    if (item == super.get(i)) {
+                    if (item.equals(super.get(i))) {
                         return i;
                     }
                }
