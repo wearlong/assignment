@@ -10,54 +10,30 @@ package Ex7;
  *
  * @author chpeter868
  */
-class ListNode {
-    Object data;
-    ListNode next;
-    ListNode(Object o) { data=o; next=null; }
-    ListNode(Object o, ListNode nextNode) {
-        data=o; next=nextNode;
+
+class ListQueue extends LinkedList {
+    
+        public ListQueue() {    // <== constructor, different from ListStackComp.java
+		super();
     }
-    public Object getData() { return data; }
-    public ListNode getNext() { return next; }
-}
-
-class EmptyQueueException extends RuntimeException{
-    public EmptyQueueException ()
-    { super("Queue is empty"); }
-}
-
-class ListQueue {
-    private ListNode head;
-    private ListNode tail;
-    public ListQueue() { head = tail = null; }
     
     public boolean empty() {
-        return head == null;
-    } 
+         if (super.isEmpty()) {
+             return true;
+         } else {
+             return false;
+         }
+    }
+	
     public void enqueue(Object item) {
-        if (empty()) {
-            head = tail = new ListNode(item);
-        }
-        else {
-         tail = tail.next = new ListNode(item);
-        }
+        super.addToTail(item);
     }
 
-    public Object dequeue()
-        throws EmptyQueueException {
-            Object item = null;
-            if (empty()) {
-                throw new EmptyQueueException();
-            }
-            item = head.data;
-            if (head == tail) {
-                head = tail = null;
-            }
-            else {
-                head = head.next;
-            }
-            return item;
-        }       
+    public Object dequeue() {
+        Object item = null;
+	super.removeFromHead();
+	return item;
+    }       
     
     public Object initialize() {
         for (int i = 1; i > 0; i++) {
@@ -70,17 +46,6 @@ class ListQueue {
         return null;
     }  
     
-    
-    
-    public String toString() {
-        String s = new String("Head[ ");
-        ListNode current = head;
-        while (current != null) {
-            s = s.concat(current.data.toString() + " ");
-            current = current.next;
-        }
-        s = s.concat("]Tail");
-        return s;
-    }
+
 }
 
